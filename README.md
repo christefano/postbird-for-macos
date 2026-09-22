@@ -1,4 +1,4 @@
-# Postbird macOS
+# Postbird for macOS
 
 *Postbird for macOS* is a [Postbox](https://en.wikipedia.org/wiki/Postbox_(email_client))-style theme for [Thunderbird](https://www.thunderbird.net) / [Betterbird](https://www.betterbird.eu) for macOS, and is an updated macOS-specific build of [Ocanamat / Postbird](https://github.com/Ocanamat/Postbird), which is pretty much targeted for Windows only.
 

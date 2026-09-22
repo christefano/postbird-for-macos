@@ -50,9 +50,20 @@
     color-mix(in srgb, var(--pb-accent) 12%, var(--pb-bg-primary)) !important;
 }
 
-/* Table view fallback: carry the sender color onto unread rows. */
+/* Table view fallback: read/unread text color.
+ * Native BB colors unread rows via --unread-color and read rows via the
+ * inherited --tree-view-color ([is="tree-view-table-body"] > .table-layout
+ * [data-properties~="unread"] in shared/threadPane.css). Table view keeps
+ * BB's native dark background, so unread needs a light color to read and
+ * read needs the darker Postbox tone to sit back. Previously --unread-color
+ * pointed at the dark sender tone and read rows were left on the native
+ * light color, reversing the two (white read / dark unread). Fixed
+ * 2026-09-21. */
 #threadTree {
-  --unread-color: var(--pb-text-sender) !important;
+  --unread-color: var(--pb-c-sidebar-primary) !important;
+}
+[is="tree-view-table-body"] > .table-layout:not([data-properties~="unread"]) {
+  color: var(--pb-text-sender) !important;
 }
 
 /* --------------------------------------------------------------------------

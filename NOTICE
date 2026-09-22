@@ -1,0 +1,33 @@
+Postbird — scope of the MIT license
+====================================
+
+The MIT license in LICENSE covers the Postbird CSS, documentation, and scripts
+only.
+
+Postbird targets the DOM of Betterbird / Mozilla Thunderbird, which are licensed
+under the Mozilla Public License 2.0. No Betterbird, Thunderbird, or Mozilla
+source is included in this repository.
+
+"Postbox" and its "Monterail Dark" theme are the property of their respective
+owners and are referenced for design compatibility only. No Postbox code or
+assets are redistributed here.
+
+macOS port
+==========
+
+This repository is a downstream build of
+https://github.com/Ocanamat/Postbird (MIT licensed), which targets Windows
+only. The CSS design tokens, components, and structure are the upstream
+authors' work, unmodified except where noted below.
+
+Changes made in this fork:
+- Windows-only PowerShell deploy scripts (`scripts/*.ps1`) removed. Replaced
+  with a manual macOS install path documented in the README.
+- Dark mode support added: the folder pane, main toolbar, tab strip, status
+  bar, and compose window now switch palettes via
+  `@media (prefers-color-scheme: …)`, where upstream (untested outside
+  Windows light mode) previously pinned them to a single light palette.
+- `.github/FUNDING.yml` removed (not applicable to the macOS fork).
+
+This is a personal downstream port, not affiliated with or endorsed by the
+upstream project.

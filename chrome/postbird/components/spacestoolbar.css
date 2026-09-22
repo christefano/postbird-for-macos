@@ -1,0 +1,51 @@
+/* ==========================================================================
+ * postbird — components/spacestoolbar.css
+ * UI region: the spaces toolbar (the left icon rail — Mail/Calendar/Tasks/…).
+ * Status: PORTED (v1.1).
+ *
+ * TARGET  : a LIGHT rail (Monterail toolbar tone, ~#E8E8E8) — not the darker
+ *           charcoal, and not OS-dark — with its space icons vertically centered.
+ *
+ * BB140   : Ground truth …/shared/spacesToolbar.css. The rail is
+ *           `#spacesToolbar` (class `.spaces-toolbar`), a fixed flex column
+ *           with `justify-content: space-between` (icons top, settings bottom).
+ *           Background comes from `--spaces-bg-color`
+ *           (`light-dark(#e8e8e8, #252525)`); icon groups are
+ *           `.spaces-toolbar-container`. See docs/selector-map.md region
+ *           'spacestoolbar'.
+ *
+ * WHY !important: userChrome is user-origin; see threadpane.css header.
+ * ------------------------------------------------------------------------ */
+
+/* ST-01  Light background, pinned regardless of OS light/dark mode. */
+#spacesToolbar {
+  --spaces-bg-color: var(--pb-spaces-bg) !important;
+}
+
+/* ST-03  Slightly smaller icons + tighter padding → a narrower rail.
+ * Set on :root (NOT #spacesToolbar): Betterbird computes --spaces-total-width
+ * on :root from these vars, and the window content is shifted right by that
+ * width. Overriding only on #spacesToolbar shrank the rail but left the shift
+ * at the default width → a gap between the rail and the content. On :root, the
+ * shift recalculates to match. (spacesToolbar.css:34-37 defaults 20/7/5px.) */
+:root {
+  --spaces-icon-size: var(--pb-spaces-icon-size) !important;
+  --spaces-padding: 5px !important;
+  --spaces-button-padding: 4px !important;
+  --spaces-gap: 10px !important;
+}
+
+/* ST-02  Vertically center the space icons, keeping settings/collapse at the
+ * bottom. The blocker was #spacesToolbarAddonsContainer { flex: 1 1 0 }
+ * (spacesToolbar.css:322): it grows to fill the column, pinning the top icons
+ * up and settings down, so neither justify-content nor auto-margins could move
+ * them. Neutralize that grow, then auto top-margins on the top + bottom
+ * containers split the free space — centring the icons, pinning the bottom.
+ * (messenger.xhtml:3772/3806/3820.) */
+#spacesToolbarAddonsContainer {
+  flex: 0 0 auto !important;
+}
+#spacesToolbar .spaces-toolbar-top-container,
+#spacesToolbar .spaces-toolbar-bottom-container {
+  margin-block-start: auto !important;
+}

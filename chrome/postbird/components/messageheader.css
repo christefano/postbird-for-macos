@@ -1,0 +1,111 @@
+/* ==========================================================================
+ * postbird — components/messageheader.css
+ * UI region: the message header (From / Subject / To / Date, star, tags)
+ *            above the message body in the reading pane.
+ * Status: ADAPTED (first pass — verify against a reading-pane screenshot).
+ *
+ * TARGET  : refs/postbox-target/Screenshot_emailRead.jpg — header sits on a
+ *           light chrome band (Monterail --bg-secondary #F0F0F0), bold sender,
+ *           muted secondary metadata.
+ *
+ * BB140   : Ground truth aboutMessage.xhtml:856. DOM:
+ *              html:header#messageHeader.message-header-container
+ *                .message-header-row  (each From/To/Cc/… row)
+ *                #expandedfromRow  #expandedtoRow  #dateLabel
+ *                #expandedsubjectBox           (the subject)
+ *           See docs/selector-map.md region 'messageheader'.
+ *
+ * WHY !important: userChrome is user-origin; see threadpane.css header.
+ * ------------------------------------------------------------------------ */
+
+/* MH-01  Header band — Monterail chrome grey (matches maintainer's userChrome) */
+#messageHeader {
+  background-color: var(--pb-bg-chrome) !important;
+}
+
+/* MH-02  Subject — primary dark ink */
+#messageHeader #expandedsubjectBox {
+  color: var(--pb-text-sender) !important;
+}
+
+/* MH-03  Date — muted secondary */
+#messageHeader #dateLabel {
+  color: var(--pb-text-date) !important;
+}
+
+/* MH-04 (removed). We previously forced #expandedtoRow to display:flex and
+ * bottom-aligned it — but that fought the header's own grid layout, which is
+ * exactly what mis-aligned the To line once compact mode was on. The compact
+ * header + `movetoheader` (applied via configure-xulstore, Port D) arranges the
+ * To row natively, so postbird no longer touches its layout. */
+
+/* MH-05  Slightly smaller header avatar (~8% down from BB's 26px). */
+#messageHeader {
+  --recipient-avatar-size: var(--pb-avatar-header-size) !important;
+}
+
+/* MH-06 (dropped): a "To:" colon was requested then discarded. The label is a
+ * XUL <label value=…> so ::after can't attach; the recipients-box workaround
+ * was reverted per user preference — the plain "To" is left as-is. */
+
+/* --------------------------------------------------------------------------
+ * MH-07  Postbox-style message "card": the message body floats as a white,
+ * rounded panel on a light-grey frame, giving a distinct separation from the
+ * header above and the thread pane beside it WITHOUT drawing divider lines.
+ * DOM (aboutMessage.xhtml:840): #messagepaneboxwrapper > #messagepanebox >
+ * #singleMessage > (#messageHeader … <browser id="messagepane">).
+ * We grey the frame and inset the body browser (margin + radius + soft shadow).
+ * ------------------------------------------------------------------------ */
+#messagepanebox {
+  background-color: var(--pb-bg-chrome) !important;
+}
+#messagepane {
+  /* top | side | bottom | side */
+  margin: var(--pb-msg-card-margin-top) var(--pb-msg-card-margin-side)
+          var(--pb-msg-card-margin-bottom) var(--pb-msg-card-margin-side) !important;
+  border-radius: var(--pb-msg-card-radius) !important;
+  /* soft shadow for the "floating card" lift — a shadow, not a line */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* MH-08  Remove the thin divider line between the message header and the body.
+ * It's the collapsed #header-splitter (aboutMessage.xhtml:1452) rendering its
+ * splitter line; the grey card frame is the separation now, so drop the line. */
+#header-splitter {
+  --splitter-color: transparent !important;
+  border: none !important;
+  background: transparent !important;
+  min-height: 0 !important;
+}
+
+/* MH-09  Port A — hide noisy technical header rows (only shown in all-headers
+ * view) for a cleaner header. Content fields (Cc/Bcc/Reply-To/Tags/Date/…) are
+ * intentionally NOT hidden (that stays user-personal). Addon rows like DKIM are
+ * not listed (may not exist). */
+#messageHeader :is(
+  #expandedmessage-idRow,
+  #expandedin-reply-toRow,
+  #expandedreferencesRow,
+  #expandeduser-agentRow,
+  #expandedarchived-at,
+  #expandedlist-id,
+  #expandedlist-help,
+  #expandedlist-unsubscribe,
+  #expandedlist-subscribe,
+  #expandedlist-post,
+  #expandedlist-owner,
+  #expandedlist-archive
+) {
+  display: none !important;
+}
+
+/* MH-ACCOUNT-PILL — NOT IMPLEMENTED (CSS-only cannot do it).
+ * Requested: a pill before the date showing the RECEIVING account name
+ * (Main / Personal / Work-MS …) tinted with that account's color.
+ * Blocked because BB140 renders NEITHER the account name NOR an account-color
+ * CSS variable into the message-header DOM (verified: no `account-color` in
+ * chrome/messenger; msgHdrView.js only uses the identity for compose, not for
+ * a header label). CSS `content:` can't inject a dynamic account name, and
+ * there's no color to key a pill off. This needs userChrome.js to build the
+ * element — forbidden by the project's CSS-only constraint.
+ * Logged in docs/backlog.md. */

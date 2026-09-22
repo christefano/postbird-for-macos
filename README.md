@@ -4,9 +4,9 @@
 
 Pure `userChrome` / `userContent` CSS. No add-ons, no JS.
 
-Postbird recreates the look of the late great and discontinued **Postbox** email client, and unlike the original Ocanamat Postbird that only recreates Postbox's Monterail Dark theme, *Postbird for macOS* works with both light mode and dark mode. It also fixes some bugs along the way.
+*Postbird for macOS* recreates the look of the late great and discontinued **Postbox** email client, and unlike the original Ocanamat Postbird that only recreates Postbox's Monterail Dark theme, *Postbird for macOS* works with both light mode and dark mode. It also fixes some bugs along the way.
 
-Postbird for macOS is best used with **Betterbird 140.x ESR** (`140.12.0esr-bb24`), whose HTML thread tree needed fresh selectors.
+*Postbird for macOS* is best used with **Betterbird 140.x ESR** (`140.12.0esr-bb24`), whose HTML thread tree needed fresh selectors.
 
 ## Quick start
 
@@ -42,7 +42,7 @@ All the colors and sizes are `--pb-*` tokens in [`chrome/postbird/config.css`](c
 
 ## Betterbird-specific guidance
 
-Postbird for macOS doesn't specifically support Betterbird, but it *should* work. Betterbird ESR updates its move selectors, so check [`docs/selector-map.md`](docs/selector-map.md) for Betterbird rules and [`docs/migration-runbook.md`](docs/migration-runbook.md) from the original Postbird project for more. Contributions welcome.
+*Postbird for macOS* doesn't specifically support Betterbird, but it *should* work. Betterbird ESR updates its move selectors, so check [`docs/selector-map.md`](docs/selector-map.md) for Betterbird rules and [`docs/migration-runbook.md`](docs/migration-runbook.md) from the original Postbird project for more. Contributions welcome.
 
 ## Credits
 

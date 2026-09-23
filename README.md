@@ -13,21 +13,21 @@ Pure `userChrome` / `userContent` CSS. No add-ons, no JS.
 <table>
 <tr>
 <td align="center">
-<img src="screenshots/postbird-for-macos-main-window-light-mode.png" alt="Main window (light mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-main-window-light-mode.png" alt="Main window (light mode)" width="480">
 <em>Main window (light mode)</em>
 </td>
 <td align="center">
-<img src="screenshots/postbird-for-macos-three-pane-window-light-mode.png" alt="Three-pane window (light mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-three-pane-window-light-mode.png" alt="Three-pane window (light mode)" width="480">
 <em>Three-pane window (light mode)</em>
 </td>
 </tr>
 <tr>
 <td align="center">
-<img src="screenshots/postbird-for-macos-message-window-light-mode.png" alt="Message window (light mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-message-window-light-mode.png" alt="Message window (light mode)" width="480">
 <em>Message window (light mode)</em>
 </td>
 <td align="center">
-<img src="screenshots/postbird-for-macos-compose-message-window-light-mode.png" alt="Compose message window (light mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-compose-message-window-light-mode.png" alt="Compose message window (light mode)" width="480">
 <em>Compose message window (light mode)</em>
 </td>
 </tr>
@@ -36,21 +36,21 @@ Pure `userChrome` / `userContent` CSS. No add-ons, no JS.
 <table>
 <tr>
 <td align="center">
-<img src="screenshots/postbird-for-macos-main-window-dark-mode.png" alt="Main window (dark mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-main-window-dark-mode.png" alt="Main window (dark mode)" width="480">
 <em>Main window (dark mode)</em>
 </td>
 <td align="center">
-<img src="screenshots/postbird-for-macos-three-pane-window-dark-mode.png" alt="Three-pane window (dark mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-three-pane-window-dark-mode.png" alt="Three-pane window (dark mode)" width="480">
 <em>Three-pane window (dark mode)</em>
 </td>
 </tr>
 <tr>
 <td align="center">
-<img src="screenshots/postbird-for-macos-reply-window-dark-mode.png" alt="Reply window (dark mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-reply-window-dark-mode.png" alt="Reply window (dark mode)" width="480">
 <em>Reply window (dark mode)</em>
 </td>
 <td align="center">
-<img src="screenshots/postbird-for-macos-compose-window-dark-mode.png" alt="Compose window (dark mode)" style="display:block">
+<img src="screenshots/postbird-for-macos-compose-window-dark-mode.png" alt="Compose window (dark mode)" width="480">
 <em>Compose window (dark mode)</em>
 </td>
 </tr>
